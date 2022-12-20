@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hw1</title>
+</head>
+
+<body>
+    <img id="1" class="i" src="img/star.gif" />
+    <img id="2" class="i" src="img/star.gif" />
+    <img id="3" class="i" src="img/star.gif" />
+    <img id="4" class="i" src="img/star.gif" />
+    <img id="5" class="i" src="img/star.gif" />
+    <div></div>
+    <script src="/JQueryHomeWork/jquery-3.6.2.min.js"></script>
+    <script>
+        // var id = $("img").attr("id")
+        $(".i").hover(function () {
+            $(this).prevAll().prop("src", "img/chngstar.gif")
+            $(this).prop("src", "img/chngstar.gif")
+            // console.log($(this).attr('id'))
+            $("div").append("<p>打分中..." + $(this).attr('id') + "</p>")
+        }, function () {
+            $(this).prevAll().prop("src", "img/star.gif")
+            $(this).prop("src", "img/star.gif")
+            $("p").remove();
+        })
+
+        $(".i").click(function () {
+            $("p").remove();
+            $("div").append("<p>你給" + $(this).attr('id') + "顆星</p>")
+        })
+    </script>
+</body>
+
+</html>
